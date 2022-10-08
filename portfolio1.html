@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stevie Brooks</title>
+    <style>
+        body {
+            margin: 0 auto;
+            box-sizing: border-box;
+            background:
+            linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+            linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+            linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+            linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+            linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+            linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+            background-color: #131313;
+            background-size: 20px 20px;
+            color: whitesmoke;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background-color: #171717;
+            padding: 0;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 5px aqua;
+            z-index: 1;
+        }
+        .navbar ul {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin: 0 20px;
+            padding: 0;
+            list-style: none;
+        }
+        .navbar li {
+            font-size: 23px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+        }
+        .navbar li:hover {
+            background-color: whitesmoke;
+        }
+        .navbar li:hover a {
+            color: black;
+        }
+        header {
+            width: 50%;
+            margin: 80px auto 50px;
+            text-align: center;
+            background-color: #171717;
+            border-radius: 100px;
+            box-shadow: 0 0 10px whitesmoke,
+                        0 0 5px aqua;
+        }
+        header h1 {
+            font-size: 6vw;
+        }
+        .helpful {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            width: 90%;
+            margin: -3vw auto 0;
+        }
+        .helpful form {
+            width: 100%;
+        }
+        .helpful input {
+            width:10rem;
+            position: relative;
+            left: 15%;
+            font-size: 1rem;
+            background-color: #171717;
+            color: whitesmoke;
+            letter-spacing: 2px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 50px;
+            box-shadow: 0 0 8px whitesmoke,
+                        0 0 3px aqua;
+        } 
+        .helpful input::placeholder {
+            color: whitesmoke;
+        }
+        .helpful .socials {
+            grid-column: 2 / 3;
+            display: flex;
+            justify-content: center;
+            padding-left: 8rem;
+        }
+        .helpful img {
+            width: 2.2em;
+            margin: 0 1rem;
+        }
+        .helpful img:hover {
+            transform: scale(1.1);
+        }
+        .about {
+            text-align: center;
+            width: 90%;
+            margin: 50px auto;
+            font-size: 20px;
+            line-height: 1.3;
+            background-color: #171717;
+            padding: 5px 15px;
+            border-radius: 50px;
+            box-shadow: 0 0 8px whitesmoke,
+                        0 0 3px aqua;
+        }
+        .about h2 {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            font-size: 35px;
+        }
+        .blogintro {
+            font-size: 35px;
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 8PX;
+        }
+        .blog {
+            margin: 50px auto;
+            background: url('pics/clint-patterson-dYEuFB8KQJk-unsplash.jpg');
+            background-size: 300%;
+            background-attachment: fixed;
+            background-position: 100% 80%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 50px;
+            padding: 30px;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 4px aqua;
+        }
+        .blog h2 {
+            grid-column: 1 / 7;
+        }
+        .blog .card {
+            background-color: #171717;
+            padding: 1px 5px;
+            text-align: center;
+            border-radius: 10px 10px 50px 50px;
+            box-shadow: 0 0 3px whitesmoke,
+                        0 0 2px aqua;
+        }
+        .blog .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 6px whitesmoke,
+                        0 0 4px aqua;
+        }
+        .blog img {
+            border-radius: 5px;
+        }
+        .blog .card1 {
+            grid-column: 1 / span 3;
+        }
+        .blog .card2 {
+            grid-column: 4 / span 3;
+        }
+        .blog .card3 {
+            grid-column: 1 / 3;
+        }
+        .blog .card4 {
+            grid-column: 3 / 5;
+        }
+        .blog .card5 {
+            grid-column: 5 / 7;
+        }
+        .blog .card6 {
+            grid-column: 1 / 3;
+        }
+        .blog .card7 {
+            grid-column: 3 / 5;
+        }
+        .blog .card8 {
+            grid-column: 5 / 7;
+        }
+        .projects {
+            text-align: center;
+            width: 80%;
+            margin: 100px auto;
+            font-size: 20px;
+            line-height: 1.3;
+            background-color: #171717;
+            padding: 5px 15px;
+            border-radius: 50px;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+        }
+        .projects h2 {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            font-size: 35px;
+        }
+        .contact {
+            width: fit-content;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #171717;
+            padding: 10px 20px 30px 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+        }
+        .contact h2 {
+            font-size: 35px;
+        }
+        .contact fieldset {
+            width: fit-content;
+            border-radius: 20px;
+            font-size: 18px;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact input {
+            width: 40vw;
+            margin: 15px 20px;
+            padding: 8px 10px;
+            font-size: 18px;
+            background-color: #171717;
+            color: whitesmoke;
+            border: none;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+            border-radius: 20px;
+        }
+        .contact label:nth-of-type(4) {
+            margin: 20px 0 5px;
+        }
+        .contact label:nth-of-type(5) {
+            margin-top: 20px;
+        }
+        .contact textarea {
+            width: 40vw;
+            margin-top: 20px;
+            padding-top: 5rem;
+            background-color: #171717;
+            color: whitesmoke;
+            border: none;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+            border-radius: 20px;
+            text-align: center;
+        }
+        button {
+            margin: 20px 10px;
+            font-size: 20px;
+            background-color: #171717;
+            color: whitesmoke;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+        }
+        button:hover {
+            font-weight: 600;
+            cursor: pointer;
+        }
+        footer {
+            margin-top: 50px;
+            background-color: #171717;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            align-items: center;
+            box-shadow: 0 0 5px whitesmoke,
+                        0 0 3px aqua;
+        }
+        .footer-me {
+            grid-column: 1 / 2;
+            padding-left: 2rem;
+        }
+        .footer-nav {
+            grid-column: 2 / 3;
+            justify-content: center;
+            align-self: center;
+        }
+        .footer-nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .footer-nav li {
+            margin: 10px;
+        }
+        .footer-socials {
+            grid-column: 3 / 4;
+            display: flex;
+            align-self: center;
+            justify-content: space-evenly;
+            padding: 0 4rem;
+        }
+        .footer-socials img {
+            width: 2rem;
+            margin-left: 10px;
+        }
+        .footer-socials img:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 780px) {
+            .blog .card1 {
+                grid-column: 1 / 8;
+            }
+            .blog .card2, .blog .card4, .blog .card6, .blog .card8 {
+                grid-column: 1 / 4;
+            }
+            .blog .card3, .blog .card5, .blog .card7 {
+                grid-column: 4 / 8;
+            }
+            .contact input, .contact textarea {
+                width: 50vw;
+            }
+        } 
+        @media (max-width: 550px) {
+            header {
+            width: 80%;
+            margin: 120px auto 50px;
+        }
+        header h1 {
+            font-size: 7vw;
+            letter-spacing: 10px;
+        }
+        .helpful .socials {
+            padding-left: 0%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header id="home">
+        <h1>Stevie Brooks</h1>
+    </header>
+    <section class="helpful">
+        <form action="search">
+            <label for="search"><input type="text" name="search" id="search" placeholder=" &#128269; Search Site"></label>
+        </form>
+        <aside class="socials">
+            <a href="https://twitter.com/StevieBanter" target="_blank"><img src="pics/twitter.png" alt="twitter icon by riajulislam"></a>
+            <a href="https://www.linkedin.com/in/steven-brooks-93813a1b7/" target="_blank"><img src="pics/linkedin.png" alt="linkedin icon by riajulislam"></a>
+            <a href="https://github.com/steviebrooks" target="_blank"><img src="pics/github.png" alt="github icon by roundicons"></a>
+        </aside>
+    </section>
+    <section class="about" id="about">
+        <h2>The Clubber Meets The Code...</h2>
+        <p>Once upon a time, I was a child of night; sweaty basements, strobe lighting and ridiculous chats with strangers were my thing. In essence, 
+            music has always been a big part of my life. Albeit, these days I'm out of bed by 5:30 am for a hard day's study as if I'm one of the 
+            Essenes. I've always been a creative individual but the world of copywriting for other entities has finally taken its toll. These days, 
+            I would rather write my own obituary. 
+        </p>
+        <p>A hodgepodge of catalysts has caused me to invest in myself and make this career transition. It wasn't a tough choice, however, coding
+            itself is more difficult than quitting smoking. I should have tried to learn Mandarin instead. Quips aside, this journey into tech is 
+            arming me with the tools I need to make my contribution to the world. Ideas plague my mind as I've never been able to implement most of 
+            them. I'm sincerely hoping that a robust knowledge of programming will help. Anyway, this is me, a bubbly and light-hearted soul ready to
+            try and make a difference. Now it's time to hit the code!
+        </p>
+    </section>
+    <section class="blog" id="blog">
+        <h2 class="blogintro">Feel free to read my mind...</h2>
+        <a href="#" class="card1">
+            <article class="card">
+                <h3>Best Procrastination Practices for Coders</h3>
+                <img src="pics/nubelson-fernandes-Xx4i6wg6HEg-unsplash.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card2">
+            <article class="card">
+                <h3>Usain Bolt on the Keyboard? Type your way to victory!</h3>
+                <img src="pics/keyboard.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card3">
+            <article class="card">
+                <h3>Book Review: "Four-Hour Work Week" - Tim Ferriss</h3>
+                <img src="pics/the-4-hour-workweek.png" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card4">
+            <article class="card">
+                <h3>Is Elon Musk a Genius or a Troll?</h3>
+                <img src="pics/troll.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card5">
+            <article class="card">
+                <h3>Five Inspirational Tech Stars</h3>
+                <img src="pics/stars.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card6">
+            <article class="card">
+                <h3>100 Jokes About Programming Languages</h3>
+                <img src="pics/joke.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card7">
+            <article class="card">
+                <h3>10 Angriest People in Tech</h3>
+                <img src="pics/angry.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+        <a href="#" class="card8">
+            <article class="card">
+                <h3>What has Happened to Harmony One?</h3>
+                <img src="pics/Harmony-ONE-Price.jpg" alt="picture of man sleeping by Nubelson Fernandes" width="100%">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, ea?</p>
+            </article>
+        </a>
+
+    </section>
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <p>Coming soon, I have only been coding since May '22.</p>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Me:</h2>
+        <fieldset>
+            <legend>Punch in your details here.</legend>
+            <form action="contact">
+                <label for="name">Name: <input type="text" name="name" id="name"></label>
+                <label for="email">Email: <input type="email" name="email" id="email"></label>
+                <label for="phone">Phone: <input type="number" name="" id=""></label>
+                <label for="reqtype">What is the nature of your message?</label>
+                <input type="text" name="reqtype" id="reqtype">
+                <label for="reqelab">If necessary, please elaborate below. &#9759;</label>
+                <textarea name="reqelab" id="reqelab" cols="30" rows="10"></textarea>
+                <div class="buttons"><button type="submit">Submit</button> <button type="reset">Reset</button></div>
+            </form>
+        </fieldset>
+    </section>
+    <footer>
+        <aside class="footer-me">
+            <a href="#home"><h2>Stevie Brooks</h2></a>
+            <p>Copyright &copy; 2022</p>
+        </aside>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <aside class="footer-socials">
+            <a href="https://twitter.com/StevieBanter" target="_blank"><img src="pics/twitter.png" alt="twitter icon by riajulislam"></a>
+            <a href="https://www.linkedin.com/in/steven-brooks-93813a1b7/" target="_blank"><img src="pics/linkedin.png" alt="linkedin icon by riajulislam"></a>
+            <a href="https://github.com/steviebrooks" target="_blank"><img src="pics/github.png" alt="github icon by riajulislam"></a>
+        </aside>
+    </footer>
+</body>
+</html>
