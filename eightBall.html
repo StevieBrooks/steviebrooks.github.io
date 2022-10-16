@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EightBall</title>
+    <style>
+        body {
+            margin: 0 auto;
+            height: 100vh;
+            box-sizing: border-box;
+            background: radial-gradient(at -10% 10%, darkred, crimson, orangered, maroon);
+        }
+        .outer-case {
+            width: 600px;
+            height: 500px;
+            background-color: blueviolet;
+            margin: 1.5rem auto;
+            border: 10px groove purple;
+            border-radius: 20px;
+        }
+        .eightball {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(rgb(62, 62, 62), rgb(31, 31, 31), #000);
+            border-radius: 200px;
+            margin: 1rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .eight-dis {
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(rgb(182, 182, 182), rgb(222, 222, 222), whitesmoke);
+            border-radius: 50%;
+            border: 3px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .eight-dis p {
+            width: 70%;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        button {
+            font-size: 23px;
+            width: 250px;
+            padding: .5rem;
+            margin: 0 11rem;
+            border: 2px solid;
+            border-radius: 20px;
+        }
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        function question1() {
+            let magicNum = Math.ceil(Math.random() * 8);
+            let eightBall = ""
+            switch (magicNum) {
+                case 1:
+                    eightBall = "Absolutely, as long as you work your ass off!";
+                    break;
+                case 2:
+                    eightBall = "Not a chance!";
+                    break;
+                case 3:
+                    eightBall = "Health is wealth!";
+                    break;
+                case 4: 
+                    eightBall = "That depends on your mindset!";
+                    break;
+                case 5:
+                    eightBall = "Does the Pope shit in the Vatican?";
+                    break;
+                case 6:
+                    eightBall = "Probably not!";
+                    break;
+                case 7: 
+                    eightBall = "It depends which books you read!";
+                    break;
+                case 8: 
+                    eightBall = "Dunno. Ask Santa for more lottery tickets!";
+                    break;
+            }
+            let output = document.getElementById('display');
+            output.innerHTML = eightBall;
+        }
+    </script>
+</head>
+<body>
+
+        <div class="outer-case">
+            <div class="eightball">
+                <div class="eight-dis">
+                    <p id="display">8</p>
+                </div>
+            </div>
+            <button onclick="question1()">Will I ever be rich?</button>
+        </div>
+
+    
+</body>
+</html>
